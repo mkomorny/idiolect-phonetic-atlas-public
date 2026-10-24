@@ -1,0 +1,56 @@
+HOW TO USE: idiolect-phonetic-atlas
+====================================
+
+PURPOSE
+  Catalog and formalize a speaker's private phoneme system, Wells 24 lexical sets,
+  allophonic rules, VOT in ms, rhoticity %, th-stopping rate, yod-dropping,
+  idiosyncratic word pronunciations, and minimal pairs for voice cloning and synthesis.
+
+CAPABILITIES
+  - Map steady-state formant targets (F1/F2/F3) and duration for Wells 24 lexical sets
+  - Measure Voice Onset Time (VOT ms) and release bursts across stop categories
+  - Quantify sociolinguistic indices (rhoticity %, th-stopping, yod-dropping, short-a split)
+  - Curate idiosyncratic word pronunciation dictionary (e.g. huge, coffee, water)
+  - Generate phonemic minimal-pair discrimination checklist (cot/caught, pin/pen)
+  - Output machine-readable idiolect_atlas.json
+
+USE CASES
+  - "Give me the exact phoneme breakdown of this speaker beyond generic NYC accent"
+  - You are training or conditioning a voice clone and need an IPA pronunciation dictionary
+  - You want to verify whether a voice clone preserves the speaker's distinct minimal pairs
+  - You need to determine why two voices with identical pitch still sound different
+
+IDEAS
+  - Pair with prosodic-grammar-intonation-os to combine tune with phoneme realization
+  - Feed idiolect_atlas.json directly into synthesis-control-compiler for Kokoro/SSML
+  - Use the minimal pair checklist in clone-verification-match-score
+
+PROMPTS YOU CAN PASTE
+  /idiolect-atlas Queens-male-orator
+
+  create phonetic atlas for Steve Jobs
+
+  idiolect atlas of a 30yo male with Down syndrome
+
+  map phoneme system for this speaker. Include all 24 Wells lexical sets and VOT.
+
+  Give me the idiosyncratic pronunciation dictionary and minimal pair list for this voice.
+
+EXAMPLE FLOW
+  You:   /idiolect-atlas Queens-male-orator
+  Model: 1. Wells Lexical Sets:
+         - THOUGHT (/ɔː/): realized as [ɔːə], F1=580Hz, F2=910Hz, dur=165ms
+         - GOAT (/oʊ/): realized as [oʊ], F1=490Hz, F2=1050Hz
+         2. Consonant Dynamics:
+         - Voiceless stop VOT: /p/=45ms, /t/=62ms, /k/=74ms
+         3. Sociolinguistic Variables:
+         - Rhoticity: 34.5% coda retention
+         - TH-stopping: 28% [t̪, d̪]
+         - "huge" -> [juːdʒ] (yod-dropping + h-deletion)
+         [idiolect_atlas.json]
+
+DEFAULT GOALS IF YOU DON'T NAME ONE
+  1. Full 24 Wells lexical set IPA and formant targets
+  2. Voice Onset Time (VOT in ms) for voiceless and voiced stops
+  3. Sociolinguistic indices (rhoticity %, th-stopping rate, yod-dropping)
+  4. Machine-readable idiolect_atlas.json block
